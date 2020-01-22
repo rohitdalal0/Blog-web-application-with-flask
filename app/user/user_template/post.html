@@ -1,0 +1,166 @@
+{% extends 'extend.html' %}
+{% block body %}
+  <!-- content -->
+  <div class="container-fluid mt-5 d-flex flex-row flex-wrap">
+    {% for post in one_post %}
+    <div class="container flex-wrap col-lg-7 col-sm-12">
+      <h2>{{ post.title }}</h2>
+      <hr>
+      <div class="mb-1 mt-2" id="social-media-icons">
+        <ul>
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{post.body}}" target="_blank">
+            <li><i class="fa fa-facebook-square" aria-hidden="true"></i></li>
+          </a>
+          <a href="https://twitter.com/home?status={{post.title}}&summary={{post.body}}" target="_blank">
+            <li><i class="fa fa-twitter-square" aria-hidden="true"></i></li>
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&title={{post.title}}&summary={{post.body}}&source=" target="_blank">
+            <li><i class="fa fa-linkedin-square" aria-hidden="true"></i></li>
+          </a>
+        </ul>
+      </div>
+
+      <img src="{{post.url}}" class="mt-4 text-center mb-5 w-70 rounded" alt="{{post.url.rsplit('/',1)[1]+'.jpg'}}"
+        width="100" max-height="300">
+
+      <div id="is_like" class="d-flex justify-content-between mb-4">
+          <span class="badge badge-pill badge-light btn" id="thumb-clircle">
+            <i class="fa fa-thumbs-o-up" id="thumb-up" aria-hidden="true"></i>
+          </span>
+          <b class="badge badge-success m-2">{{post.like}}</b>
+      </div>
+
+      <p>{{ post.body }}</p>
+
+    </div>
+    {% endfor %}
+
+    <div class="col-lg-4 col-sm-12 side-div flex-wrap">
+      <h4 class="bg-primary">Related</h4>
+      <hr class="mt-0 bg-primary h-5">
+      <ul>
+        {% for related in related %}
+        <li><a href="/post/{{related.id}}">{{related.title[:130]+'....'}}</a></li>
+        <hr>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <!-- End serve content -->
+
+  <!----------------------- Start 'money' sub-menu ----------------------------->
+  <div class="d-flex flex-row mt-5 flex-wrap">
+    <div class="col-lg-6 col-sm-12">
+      <div class="col-lg-12 col-sm-12 side-div">
+        <h4 class="bg-primary">Money</h4>
+        <hr class="mt-0 bg-primary h-5">
+        <div class="container-fluid">
+          {% for money in money %}
+          {% if money is not none %}
+          <div id="text" class="row mt-2 flex-wrap">
+            <div class="col-lg-4 col-sm-12">
+              <img src="{{ money.url }}" class="rounded" alt="{{money.url.rsplit('/',1)[1]+'.jpg'}}" width="150"
+                height="80">
+            </div>
+            <div class="col-lg-8 col-sm-12">
+              <a href="/post/{{money.id}}">{{money.title[:130]+'.....'}}</a>
+            </div>
+          </div>
+          <hr>
+          {% else %}
+          <div id="text" class="row mt-2 flex-wrap">N/A</div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-lg-6 col-sm-12 flex-wrap">
+      <div class="col-lg-12 col-sm-12 side-div">
+        <h4 class="bg-primary">Business</h4>
+        <hr class="mt-0 bg-primary h-5">
+        <div class="container-fluid">
+          {% for business in business %}
+          {% if business is not none %}
+          <div id="text" class="row mt-2">
+            <div class="col-lg-4 col-sm-12">
+              <img src="{{business.url}}" class="rounded" alt="{{business.url.rsplit('/',1)[1]+'.jpg'}}" width="150"
+                height="80">
+            </div>
+            <div class="col-lg-8 col-sm-12">
+              <a href="/post/{{business.id}}">{{business.title[:130]+"...."}}</a>
+            </div>
+          </div>
+          <hr>
+          {% else %}
+          <div id="text" class="row mt-2">N/A</div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End sub-menu ========================================== -->
+
+
+  <!-- =============== News gallery ====================== -->
+  <div id="news-gallery" class="d-flex flex-row mt-5 pl-3 pr-3 flex-wrap">
+    <div class="col-lg-8 col-sm-12">
+      <h4 class="bg-primary">Investment</h4>
+      <hr class="mt-0 bg-primary h-5">
+      <div class="container-fluid d-flex flex-wrap mt-4">
+        {% for investment in investment %}
+        {% if investment is not none %}
+        <div class="container">
+          <img src="{{investment.url}}" class="rounded" alt="{{investment.url.rsplit('/',1)[1]+'.jpg'}}" width="300"
+            height="150">
+          <div class="bottom">
+            <p class="p-1">
+              <a href="/post/{{investment.id}}" class="text-white">{{investment.title[:110]+'....'}}</a>
+            </p>
+          </div>
+        </div>
+        {% else %}
+        <div class="container">N/A</div>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <!-- ============== End new gallery ==================== -->
+
+
+
+    <div class="col-lg-4 col-sm-12 side-div flex-wrap">
+      <h4 class="bg-primary">Today</h4>
+      <hr class="mt-0 bg-primary h-5">
+      <div class="container-fluid">
+        {% for today in today %}
+        {% if today is not none %}
+        <div id="text" class="row mt-2">
+          <div class="col-lg-4 col-sm-12">
+            <img src="{{today.url}}" class="rounded" alt="{{today.url.rsplit('/',1)[1]+'.jpg'}}" width="120"
+              height="80">
+          </div>
+          <div class="col-lg-8 col-sm-12">
+            <a href="/post/{{today.id}}">{{today.title[:110]+"...."}}</a>
+          </div>
+        </div>
+        <hr>
+        {% else %}
+        <div id="text" class="row mt-2">
+          <div class="col-lg-4 col-sm-12">
+            <img src="empty" alt="empty" width="120" height="80">
+          </div>
+          <div class="col-lg-8 col-sm-12">
+            <a href="/post/#">N/A</a>
+          </div>
+        </div>
+        <hr>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+{% endblock body %}

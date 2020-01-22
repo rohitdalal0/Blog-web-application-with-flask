@@ -1,0 +1,354 @@
+/* <<<<<============== Navbar ==================>>>> */
+*{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+/* <<<<<============== End Navbar ==================>>>> */
+
+/* ================== Side divs overflow control ================ */
+/* 1 */
+#demo > ul{
+    display: none;
+}
+#demo div.carousel-inner > div.carousel-item > div.carousel-caption{
+    background-color: rgba(0, 0, 0, 0.815);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 100px;
+    word-wrap: break-word;
+}
+#demo div.carousel-inner > div.carousel-item > div.carousel-caption a{
+    color: rgb(209, 209, 209);
+}
+#demo div.carousel-inner > div.carousel-item > div.carousel-caption a h3{
+    color: rgb(209, 209, 209);
+    padding: 1px;
+}
+
+body > div.container-fluid.d-flex.flex-row.mt-5 > div.col-lg-4.col-sm-12.side-div > div.container-fluid{
+    height: 450px;
+    overflow-y: scroll;
+}
+body > div.container-fluid.d-flex.flex-row.mt-5 > div.col-lg-4.col-sm-12.side-div > h4{
+    padding: 7px 7px;
+    width: 110px;
+    margin-bottom: 0%;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+body > div.container-fluid.d-flex.flex-row.mt-5 > div.col-lg-4.col-sm-12.side-div > hr{
+    height: 4px;
+}
+
+/* 2 */
+#news-gallery > div.col-lg-4.col-sm-12.side-div h4{
+    padding: 7px 7px;
+    width: 80px;
+    margin-bottom: 0%;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+#news-gallery > div.col-lg-4.col-sm-12.side-div hr{
+    height: 4px;
+}
+/* ================== End overflow control ================ */
+
+/* ================== Two div without overflow control ================ */
+body > div:nth-child(3) > div:nth-child(1) > div h4{
+    padding: 7px 7px;
+    width: 90px;
+    margin-bottom: 0%;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+body > div:nth-child(3) > div:nth-child(2) > div h4{
+    padding: 7px 7px;
+    width: 110px;
+    margin-bottom: 0%;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+body > div:nth-child(3) > div > div hr{
+    height: 4px;
+}
+/* ================== End Two div without overflow control ================ */
+/* START IMAGE CROUSEL BESIDE DIV */
+#text > div.col-lg-4.col-sm-12 > img{
+    min-width: 120px;
+    min-height: 80px;
+}
+#text > div.col-lg-8.col-sm-12 > a{
+    word-wrap: break-word;
+}
+/* END IAMGE CAROUSEL BESIDE DIV */
+/* <<<<<<=========== Make the image fully responsive ==========>>>>>*/
+#demo div.carousel-inner img {
+    width: 100%;
+    height: 500px;
+    border-radius: 3px;
+}
+
+/* <<<<<<=========== End Make the image fully responsive ==========>>>>>*/
+
+
+/* <<<<<============== sub-menu ==================>>>> */
+#line{
+    background: #048BDA;
+    width: 100%;
+    height: 10px;
+}
+/* <<<<<============== End sub-menu ==================>>>> */
+
+
+/* <<<<<============== start Gallery ==============>>>>> */
+/* start Header */
+#news-gallery{
+    overflow: hidden;
+}
+#news-gallery > div.col-lg-8.col-sm-12 h4{
+    padding: 7px 7px;
+    width: 140px;
+    margin-bottom: 0%;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+#news-gallery > div.col-lg-8.col-sm-12 hr{
+    height: 4px;
+}
+/* End Header */
+#news-gallery > div{
+    width: 100%;
+}
+#news-gallery > div.col-lg-8.col-sm-12 > div.container-fluid > div.container{
+    position: relative;
+}
+#news-gallery > div.col-lg-8.col-sm-12 > div.container-fluid > div > div{
+    position: absolute;
+    width: 299px;
+    height: 80px;
+    top: 70px;
+    left: 16px;
+    color: white;
+    background: rgba(0, 0, 0, 0.616);
+    right: 0px;
+}
+#news-gallery > div.col-lg-8.col-sm-12 > div.container-fluid > div.container{
+    width: 300px;
+    height: 200px;
+}
+
+/* <<<<<============== End Gallery ==============>>>>> */
+
+/* <<<<<============== footer ==================>>>>> */
+
+footer{
+    background: rgb(22, 22, 22);
+}
+body > footer > div > ul.d-flex.justify-content-around, ul:nth-child(2){
+    list-style-type: none;
+}
+body > footer > div > ul.d-flex.justify-content-around > a{
+    color: rgb(97, 97, 97);
+    padding: 10px 20px;
+}
+body > footer > div > ul.d-flex.justify-content-around > a:hover{
+    color: rgb(170, 170, 170);
+    text-decoration-color: rgb(170, 170, 170);
+    
+}
+
+body > footer > div > ul:nth-child(2) > a{
+    padding: 5px 15px;
+}
+body > footer > div > ul:nth-child(2) > a > li > span{
+    font-size: 25px;
+}
+body > footer > div > ul:nth-child(2) > a:nth-child(1) > li > span{
+    color: rgb(82, 82, 82);
+}
+body > footer > div > ul:nth-child(2) > a:nth-child(2) > li > span{
+    color: rgb(148, 46, 46);
+}
+body > footer > div > ul:nth-child(2) > a:nth-child(1):hover li > span{
+    color: rgb(192, 192, 192);
+}
+body > footer > div > ul:nth-child(2) > a:nth-child(2):hover li > span{
+    color: rgb(231, 26, 26);
+}
+/* <<<<<============== End footer ==============>>>>> */
+
+
+/* Page 'post.html' */
+body > div.container-fluid.mt-5.d-flex.flex-row.flex-wrap > div.col-lg-4.col-sm-12.side-div.flex-wrap ul{
+    list-style-type: none;
+}
+body > div.container-fluid.mt-5.d-flex.flex-row.flex-wrap > div.container.flex-wrap.col-lg-7.col-sm-12 > img{
+    width: 100%;
+    max-height: 500px;
+}
+
+#social-media-icons ul{
+    list-style-type: none;
+    display: flex;
+    width: 170px;
+}
+#social-media-icons ul li{
+    margin-left: 10px;
+    width: 45px;
+    padding: 10px 15px;
+    font-size: 30px;
+}
+#social-media-icons > ul > a:nth-child(1){
+    color: rgb(50, 90, 122);
+}
+#social-media-icons > ul > a:nth-child(2){
+    color: rgb(54, 115, 151);
+}
+#social-media-icons > ul > a:nth-child(3){
+    color: rgb(14, 73, 121);
+}
+
+#social-media-icons > ul > a:nth-child(1):hover{
+    color: rgb(30, 112, 179);
+}
+#social-media-icons > ul > a:nth-child(2):hover{
+    color: rgb(18, 134, 201);
+}
+#social-media-icons > ul > a:nth-child(3):hover{
+    color: rgb(0, 47, 85);
+}
+
+/* Start Like unlike */
+
+/* End is_ike */
+#is_like{
+    width:110px
+}
+#is_like span{
+    font-size: 30px;
+}
+#is_like b{
+    height: 20px;
+}
+/* End Page 'post.html' */
+
+/* Start Page 'about.html' */
+.social-link {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    border-radius: 50%;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+  }
+  
+  .social-link:hover,
+  .social-link:focus {
+    background: #ddd;
+    text-decoration: none;
+    color: #555;
+  }
+/* End Page 'about.html' */
+
+@media only screen and (max-width: 768px) {
+    /* Header Login and Signup button */
+    #collapsibleNavbar > ul > li:nth-child(5) > a, #collapsibleNavbar > ul > li:nth-child(6) > a{
+        width: 100%;
+    }
+    /* End Heading login and signup button */
+    #demo div.carousel-inner img{
+        height: 200px;
+    }
+    #demo div.carousel-inner > div.carousel-item > div.carousel-caption{
+        bottom: 0;
+        left: 0;
+        max-width: 100%;
+        max-height: 100px;
+        word-wrap: break-word;
+    }
+
+    #demo > ul{
+        display: none;
+    }
+    #demo div.carousel-inner > div.carousel-item > div.carousel-caption{
+        background-color: #000000c9;
+
+    }
+    #demo div.carousel-inner > div.carousel-item > div.carousel-caption a{
+        color: rgb(209, 209, 209);
+    }
+    #demo div.carousel-inner > div.carousel-item > div.carousel-caption a h3{
+        font-size: 17px;
+        color: rgb(209, 209, 209);
+        padding: 1px;
+    }
+
+
+    #news-gallery > div.col-lg-8.col-sm-12 > div > div > img{
+        width: 100%;
+        max-height: 300px;
+    }
+    #news-gallery > div{
+        width: 100%;
+    }
+    #news-gallery > div.col-lg-8.col-sm-12{
+        width: 100%;
+    }
+    #news-gallery > div.col-lg-8.col-sm-12 > div > div > div.bottom{
+        max-width: 90%;
+        top: 50px;
+        height: 100px;
+        overflow: hidden;
+    }
+    #news-gallery > div.col-lg-8.col-sm-12 > div > div > div > p{
+        width: 100%;
+        overflow: hidden;
+    }
+    #news-gallery > div.col-lg-8.col-sm-12 > div.container-fluid > div.container{
+        margin: 0%;
+        padding: 0%;
+    }
+    /* start All div image response */
+    #text > div.col-lg-4.col-sm-12 > img{
+        width: 100%;
+        height: 150px;
+    }
+    #text > div.col-lg-8.col-sm-12{
+        margin-top: 5%;
+    }
+    /* End All div image response */
+    body > div.container-fluid.d-flex.flex-row.mt-5.flex-wrap > div.col-lg-4.col-sm-12.side-div.flex-wrap{
+        margin-top: 50px;
+        width: 100%;
+    }
+    #news-gallery{
+        width: 100%x;
+    }
+    #news-gallery > div.col-lg-8.col-sm-12 > div > div{
+        height: 170px;
+        width: 100%;
+    }
+    body > div.container-fluid.mt-5.d-flex.flex-row.flex-wrap > div.container-fluid.flex-wrap.col-lg-8.col-sm-12 > img{
+        width: 100%;
+        max-height: 400px;
+    }
+
+    /* Start page 'post.html' */
+    body > div.container-fluid.mt-5.d-flex.flex-row.flex-wrap > div.container.flex-wrap.col-lg-7.col-sm-12 > img{
+        width: 100%;
+        max-height: 300px;
+    }
+     /* 'post.html' main header of image */
+     body > div.container-fluid.mt-5.d-flex.flex-row.flex-wrap > div.container.flex-wrap.col-lg-7.col-sm-12 > h2{
+        font-size: 1.5rem;
+    }
+    /* End 'post.html' */
+    
+    /* End Page 'post.html' */
+  }

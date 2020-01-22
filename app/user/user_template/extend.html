@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="A Hacker">
+  <meta name="rohit" content="">
+
+  <title>Bytewar</title>
+
+  <!-- Font awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" crossorigin="anonymous">
+
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+  <!-- Latest compiled and minified CSS online -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Font awesome js -->
+  <script src="https://use.fontawesome.com/3954fbd788.js"></script>
+
+  <!-- jQuery library online -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript online -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <!-- custome css -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/index.css') }}">
+
+  <!-- js -->
+  <script src="{{url_for('user.static', filename='js/script.js')}}"></script>
+
+
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+      <!-- Brand -->
+      <a class="navbar-brand text-primary" href="/"><img src="{{ url_for('static', filename='img/logo.png') }}"></a>
+
+      <!-- Toggler/collapsibe Button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon text-white"></span>
+      </button>
+
+      <!-- Navbar links -->
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav ml-auto text-center">
+          <li class="nav-item">
+            <a class="nav-link" href="/business">Business</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/money">Money</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/investment">Investment</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/life">Life</a>
+          </li>
+          {% if current_user.is_authenticated %}
+            <li class="nav-item mr-1 ml-1">
+              <a href="/public/post" class="btn btn-outline-success">Create New</a>
+            </li>
+            <li class="nav-item mr-1 ml-1">
+              <a href="/user/logout" class="btn btn-outline-danger">Log out</a>
+            </li>
+          {% else %}
+            <li class="nav-item mr-1 ml-1">
+              <a href="/user/login" class="btn btn-outline-success">Login</a>
+            </li>
+            <li class="nav-item mr-1 ml-1">
+              <a href="/user/signup" class="btn btn-outline-primary">SignUp</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  {% with errors = get_flashed_messages(with_categories=true) %}
+    {% if errors %}
+        {% for category, error in errors %}
+            <div id="notification" class="alert alert-{{category}}" style="cursor: pointer;" onclick="$('#notification').fadeToggle(100)">{{error}}<span class="close">&times;</span></div>
+        {% endfor %}
+    {% endif %}
+  {% endwith %}
+  
+  {% block body %}
+  {% endblock %}
+
+
+  <footer class="container-fluid mt-5 flex-wrap">
+    <div class="container-fluid d-flex flex-column flex-wrap pt-3">
+      <ul class="d-flex justify-content-around">
+        <a href="/">
+          <li>Home</li>
+        </a>
+        <a href="/about">
+          <li>About</li>
+        </a>
+        <a href="/contact">
+          <li>Contact</li>
+        </a>
+      </ul>
+
+      <ul class="d-flex justify-content-center pt-2">
+        <a href="https://github.com/Rohit-Dalal" target="_blank">
+          <li><span class="fab fa-github"></span></li>
+        </a>
+        <a href="https://instagram.com/rohit_dalal__" target="_blank">
+          <li><span class="fab fa-instagram"></span></li>
+        </a>
+      </ul>
+    </div>
+    <hr class="bg-dark">
+    <center class="text-dark"><span class="fas fa-copyright"> Bytewar 2020 - All rights reserved</span></center>
+    <center class="text-dark pb-2">Powered by <a href="#" style="color: #4a5055;" data-toggle="tooltip" title="rohit">rohit</a>.</center>
+  </footer>
+</body>
+
+</html>

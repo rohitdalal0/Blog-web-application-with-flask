@@ -1,0 +1,14 @@
+{% extends 'extend.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block body %}
+<div class="container d-flex flex-column justify-content-center align-items-center mt-5">
+    <form action="/user/signup" role="form" method="POST">
+        {{ signup_form.hidden_tag() }}
+        {{ wtf.form_field(signup_form.username) }}
+        {{ wtf.form_field(signup_form.email) }}
+        {{ wtf.form_field(signup_form.password) }}
+        <button type="submit" class="btn btn-primary rounded">Sign Up</button>
+    </form>
+</div>
+{% endblock body %}

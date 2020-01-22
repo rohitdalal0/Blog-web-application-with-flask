@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- css for admin -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/admin.css') }}">
+
+    <!-- js -->
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified CSS online -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- jQuery library online -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript online -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <title>Admin</title>
+</head>
+
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div id="notification" class="alert alert-{{category}}" style="cursor: pointer;"
+                onclick="$('#notification').fadeToggle(400)">{{message}}<span class="close">&times;</span></div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="/admin/dashboard">Admin</a>
+
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav text-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/dashboard">Post</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/dashboard/logins">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/dashboard/contacts">Contacts</a>
+                </li>
+                {% if current_user.is_authenticated %}
+                    <li class="nav-item mr-1 ml-1 ml-auto" style="width: 100%;">
+                        <a href="/user/logout" class="btn btn-outline-danger">Log out</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5" id="posts">
+
+        <input class="form-control" id="Search_input" autocomplete="off" type="text" placeholder="Search..">
+
+            <div class="mt-5">
+                <table class="table table-bordered table-responsive-lg">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Message</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="Table_body">
+                        {% for contact in contact_detail %}
+                        <tr>
+                            <td>{{contact.id}}</td>
+                            <td>
+                                <input type="text" class="form-control" readonly value="{{contact.name}}">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" readonly value="{{contact.email}}">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" readonly value="{{contact.phone}}">
+                            </td>
+                            <td>
+                                <textarea type="text" class="form-control" rows="2" column="10" readonly>{{contact.message}}</textarea>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" readonly value="{{contact.date}}">
+                            </td>
+                            <td>
+                                <a class="btn btn-danger" href="/admin/dashboard/contact/delete/{{contact.id}}">Delete</a>
+                                <a class="btn btn-primary" href="/admin/dashboard/contact/update/{{contact.id}}">Edit</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</body>
+
+</html>

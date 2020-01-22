@@ -1,0 +1,17 @@
+{% extends 'extend.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block body %}
+
+<div class="container d-flex flex-column justify-content-center align-items-center mt-5 mb-5">
+    <form action="/user/login" method="POST" role="form">
+        {{ login_form.hidden_tag() }}
+        {{ wtf.form_field(login_form.email) }}
+        {{ wtf.form_field(login_form.password) }}
+        {{ wtf.form_field(login_form.remember) }}
+    <button type="submit" class="btn rounded btn-primary">Log In</button>
+        <hr>
+        <a href="/forget_password" class="text-secondary mr-4">Forget password</a>
+        <a href="/user/signup" class="text-secondary ml-5">Sign Up</a>
+    </form>
+</div>
+{% endblock body %}

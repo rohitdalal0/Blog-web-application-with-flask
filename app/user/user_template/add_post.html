@@ -1,0 +1,26 @@
+{% extends 'extend.html' %}
+{% block body %}
+
+  <form action="/public/post" method="post" role="form" enctype="multipart/form-data">
+    <div class="container text-center bg-transparent mt-5">
+      <input class="p-2 w-75 bg-transparent" name="title" placeholder="Title" type="text" style="border-bottom: 1px solid tomato;"/>
+      <textarea class=" p-2 w-75 bg-transparent" cols="30" name="body" placeholder="Body" rows="15" style="border-bottom: 1px solid tomato;"></textarea>
+      <input class="p-2 w-75 bg-transparent" name="tag" placeholder="Tag" type="text" style="border-bottom: 1px solid tomato;"/>
+      <br><br>
+      <input type="file" name='file' class="bg-transparent mt-2">
+      <br>
+      <button href="/signup" class="btn btn-outline-success mt-5">Submit</button>
+    </div>
+  </form>
+
+  <style>
+    #entry {
+      margin-top: 100px
+    }
+    .bg-transparent > .bg-transparent{
+      border-top: 1px;
+      border-left: 1px;
+      border-right: 1px;
+    }
+  </style>
+{% endblock %}
