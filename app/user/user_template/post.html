@@ -24,10 +24,11 @@
         width="100" max-height="300">
 
       <div id="is_like" class="d-flex justify-content-between mb-4">
-          <span class="badge badge-pill badge-light btn" id="thumb-clircle">
-            <i class="fa fa-thumbs-o-up" id="thumb-up" aria-hidden="true"></i>
+          <span class="badge badge-pill badge-light btn" id="thumb-clircle" style="cursor: pointer;">
+            <i class="fa fa-thumbs-o-up" id="thumb-up" aria-hidden="true" style="cursor: pointer;"></i>
           </span>
-          <b class="badge badge-success m-2">{{post.like}}</b>
+          <b class="badge badge-success m-2" id="total_like">{{post.like}}</b>
+          <span id="post_id" class="{{post.id}}"></span>
       </div>
 
       <p>{{ post.body }}</p>
