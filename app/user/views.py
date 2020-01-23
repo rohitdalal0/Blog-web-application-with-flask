@@ -227,18 +227,22 @@ def money():
 
 
 # ----------------------- Like and un-like recieve data from ajax --------------#
-@user.route('/post_likes', methods=['POST'])
+@user.route('/like_update', methods=['POST', 'GET'])
 @login_required
 def is_like():
-    data = request.get_json()
-    l_post = db.session.query(Post).filter_by(id=data[0]['id']).first_or_404()
+    if request.method == 'POST': 
+        user_db = db.session.query(Post).filter_by(id=int(request.form['id'])).first()
 
-    if data[0]['is_like']:
-        l_post.like += data[0]['like']
-        db.session.commit()
-    else:
-        l_post.unlike += data[0]['like']
-        db.session.commit()
+        if request.form['state'] == 'fa fa-thumbs-up':
+            user_db.like += 1
+            db.session.commit()
+        elif request.form['state'] == 'fa fa-thumbs-o-up':
+            user_db.like -= 1
+            db.session.commit()
+        
+        return jsonify({'total_like': user_db.like})
+        
+
 # ---------------- End like and un-like recieve data from ajax --------------#
 
 # ------------------------ Start logout route------------------------#
