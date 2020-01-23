@@ -29,7 +29,7 @@ class Post(db.Model):
     title = db.Column('Title', db.Text, nullable=False)
     body = db.Column('Body', db.Text, nullable=False)
     tag = db.Column('Tag', db.Text, nullable=False)
-    like = db.Column('Like', db.Text, default=0)
+    like = db.Column('Like', db.Integer, default=0)
     url = db.Column('Url', db.Text, nullable=False)
     date = db.Column('Date', db.String(20), nullable=False, default=date)
 
